@@ -4,9 +4,7 @@ import { cartAction } from './cartSlice';
 export const fetchCartData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch(
-        'https://react-restaurant-26852-default-rtdb.firebaseio.com/cart.json'
-      );
+      const response = await fetch(process.env.REACT_APP_FIREBASE_API);
 
       if (!response.ok) {
         throw new Error('could not fetch cart data!');
