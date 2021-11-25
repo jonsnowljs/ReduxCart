@@ -1,21 +1,17 @@
 import classes from './CartItem.module.css';
+import { cartAction } from '../../store/cartSlice';
 
 const CartItem = (props) => {
-  const { title, quantity, price } = props.item;
-  const total = quantity * price
-  console.log(price)
-  console.log(quantity)
-  console.log(title)
-
+  const { id, title, quantity, price } = props.item;
+  const total = quantity * price;
   const decreaseHandler = () => {
-    
-  }
+    cartAction.decrease(id);
+  };
 
   const increaseHandler = () => {
-    
-  }
-  
-  
+
+    cartAction.increase(id);
+  };
 
   return (
     <li className={classes.item}>

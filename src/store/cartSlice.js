@@ -9,10 +9,12 @@ const cartSlice = createSlice({
   initialState: initialCartState,
   reducers: {
       increase(state,action) {
-        state.items = state.items[action.payload]
+        console.log(action.payload);
+        console.log("teste")
+        state.items = state.items[action.payload -1].quantity++
       },
       decrease(state,action) {
-
+        state.items = state.items[action.payload - 1].quantity--;
       },
       addToCart(state,action) {
         state.items = [...state.items, action.payload]
