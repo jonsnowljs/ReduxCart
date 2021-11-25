@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Card from '../UI/Card';
 import classes from './Cart.module.css';
@@ -10,12 +10,13 @@ const Cart = (props) => {
   const items = useSelector(state => state.cart.items);
 
   const content = (
-    <Card className={classes.cart}>
+    <Card className={ classes.cart}>
       <h2>Your Shopping Cart</h2>
       <ul>
         {items.map(item => 
           <CartItem
-            item={{ title: item.title, quantity: item.quantity, price: item.price }}
+            key={item.id}
+            item={{id: item.id, title: item.title, quantity: item.quantity, price: item.price }}
           />
         )}
       </ul>

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialUIState = {isOpen: false, counter: 0}
+const initialUIState = {isOpen: false}
 
 const uiSlice = createSlice({
     name: "ui",
@@ -8,9 +8,6 @@ const uiSlice = createSlice({
     reducers: {
         toggleCart(state) {
             state.isOpen = !state.isOpen;
-        },
-        increase(state) {
-            state.counter++;
         }
     }
 })
